@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -56,9 +57,18 @@ public class EchoServer implements Runnable {
 
     public static void main(String[] args) throws IOException {
 
+    	Scanner scanner = new Scanner(System.in);
+    	String value = scanner.nextLine();
+    	
+    	if(value.equals("exe")){
+    		Runtime rt = Runtime.getRuntime();
+    	    String exeFile = "CODECONV.EXE";
+    	    Process p;
+    	    
+    	}
         int portNumber = 30000;
+        
 
- 
         ServerSocket serverSocket = new ServerSocket(portNumber);
         ExecutorService es = Executors.newFixedThreadPool(5);
         while (true) {
