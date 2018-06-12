@@ -15,6 +15,7 @@ public class RunExeFile {
 		
 		//파라미터 있는경우
 		p = rt.exec(exeFile);
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(
 				p.getInputStream()));
 		
