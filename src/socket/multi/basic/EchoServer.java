@@ -57,17 +57,7 @@ public class EchoServer implements Runnable {
 
     public static void main(String[] args) throws IOException {
 
-    	Scanner scanner = new Scanner(System.in);
-    	String value = scanner.nextLine();
-    	
-    	if(value.equals("exe")){
-    		Runtime rt = Runtime.getRuntime();
-    	    String exeFile = "CODECONV.EXE";
-    	    Process p;
-    	    
-    	}
         int portNumber = 30000;
-        
 
         ServerSocket serverSocket = new ServerSocket(portNumber);
         ExecutorService es = Executors.newFixedThreadPool(5);
