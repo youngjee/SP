@@ -8,6 +8,7 @@ import java.util.Date;
 public class DateCalculate {
 	public static void main(String[] args) throws ParseException {
 		DateCalculate dc = new DateCalculate();
+		//timeout이면 true, 아니면 false
 		System.out.println(dc.isTimeout());
 	}
 
@@ -55,8 +56,8 @@ public class DateCalculate {
 
 		// 현재시간에서 2일전과 비교시간(reqDateStr) 비교하여 초과했으면 시간경과!
 		if (comparedTime.compareTo(reqDate) > 0) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 }
