@@ -11,6 +11,38 @@ public class DateCalculate {
 		//timeout이면 true, 아니면 false
 		System.out.println(dc.isTimeout());
 	}
+	
+	//현재시간 가져오기
+	public String getCurrentTime() {
+		long time = System.currentTimeMillis();
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmddhhmmss");
+		return dayTime.format(new Date(time));
+	}
+	
+	public boolean isTimeout() throws ParseException {
+
+		// 요청시간
+		String reqDateStr = "201702011535";
+
+		// 현재시간 Date
+		SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMddHHmm");
+		Date reqDate = dateFormat.parse(reqDateStr);
+
+		Calendar cal = Calendar.getInstance();
+		// 1일이 경과했는지 확인
+		// 일단위: cal.add(Calendar.DATE, 며칠*-1);
+		// 시간단위: cal.add(Calendar.HOUR, 몇시간*-1);
+		int date = 2; // 2일경과
+		// 현재시간에서 2일 전 계산
+		cal.add(Calendar.DATE, date * -1);
+		Date comparedTime = cal.getTime();
+
+		// 현재시간에서 2일전과 비교시간(reqDateStr) 비교하여 초과했으면 시간경과!
+		if (comparedTime.compareTo(reqDate) > 0) {
+			return true;
+		}
+		return false;
+	}
 
 	public void timeCalculator() throws ParseException {
 		// 요청시간
@@ -36,28 +68,5 @@ public class DateCalculate {
 
 	}
 
-	public boolean isTimeout() throws ParseException {
 
-		// 요청시간
-		String reqDateStr = "201702011535";
-
-		// 현재시간 Date
-		SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMddHHmm");
-		Date reqDate = dateFormat.parse(reqDateStr);
-
-		Calendar cal = Calendar.getInstance();
-		// 1일이 경과했는지 확인
-		// 일단위: cal.add(Calendar.DATE, 며칠*-1);
-		// 시간단위: cal.add(Calendar.HOUR, 몇시간*-1);
-		int date = 2; // 2일경과
-		// 현재시간에서 2일 전 계산
-		cal.add(Calendar.DATE, date * -1);
-		Date comparedTime = cal.getTime();
-
-		// 현재시간에서 2일전과 비교시간(reqDateStr) 비교하여 초과했으면 시간경과!
-		if (comparedTime.compareTo(reqDate) > 0) {
-			return true;
-		}
-		return false;
-	}
 }
