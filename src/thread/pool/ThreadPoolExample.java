@@ -12,6 +12,7 @@ public class ThreadPoolExample {
 		for (int i = 0; i < 10; i++) {
 			es.submit(new ThreadClass("thread"+(i+1)));
 		}
+		es.shutdown();
 	}
 }
 
