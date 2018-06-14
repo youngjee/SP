@@ -20,7 +20,7 @@ public class SortData {
 				return o1.getNum().compareTo(o2.getNum());
 			}
 		});
-		
+				
 		for(Employee emp:empList){
 			System.out.println(emp.toString());
 		}
