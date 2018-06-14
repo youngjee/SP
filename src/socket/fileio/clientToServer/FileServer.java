@@ -46,5 +46,10 @@ public class FileServer {
 			fOut.flush();
 			fOut.close();
 		}
+		
+		dInput.close();
+		input.close();
+		listener.close();
+		server.close();
 	}
 }
