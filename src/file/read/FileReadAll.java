@@ -26,7 +26,9 @@ public class FileReadAll {
 			while ((line = bufferedReader.readLine()) != null)
 				stringBuilder.append(line).append('\n');
 
-		} finally {
+		}catch(Exception ex) {
+			throw new RuntimeException(ex);
+		}finally {
 			if (bufferedReader != null)
 				try {
 					bufferedReader.close();

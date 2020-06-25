@@ -33,10 +33,21 @@ public class MatcherExample {
 	// 숫자패턴
 	public boolean acceptNumber(String input) {
 		// 숫자만 허용
-		Pattern p = Pattern.compile("^[0-9]*$");
+		Pattern p = Pattern.compile("^[0-9]+$");
 		Matcher m = p.matcher(input);
 
 		return m.matches();
+	}
+	// 숫자패턴
+	public static boolean isDigit(String str) {
+		Pattern p = Pattern.compile("^(\\d)+$");
+		Matcher m = p.matcher(str);
+		
+		if(m.matches()) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	// 확장자 패턴
@@ -50,4 +61,6 @@ public class MatcherExample {
 
 		return result;
 	}
+	
+	
 }

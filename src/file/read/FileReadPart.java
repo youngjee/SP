@@ -26,6 +26,8 @@ public class FileReadPart {
 
 			return dataBytes;
 
+		}catch(Exception ex) {
+			throw new RuntimeException(ex);
 		} finally {
 			if (randomFile != null)
 				try {

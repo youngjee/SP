@@ -9,6 +9,22 @@ public class SubDirSearch {
 		subDirList("./INPUT");
 	}
 	
+	private File targetFile = null;
+	
+	public void searchFile(String fileName, File dir) {
+		File[] fileList = dir.listFiles();
+		for(File file:fileList) {
+			if(file.isFile()) {
+				if(file.getName().equals(fileName)) {
+					targetFile = file;
+					return;
+				}
+			}else {
+				searchFile(fileName, file);
+			}
+		}
+	}
+	
 	public static void subDirList(String source) {
 		File dir = new File(source);
 		File[] fileList = dir.listFiles();

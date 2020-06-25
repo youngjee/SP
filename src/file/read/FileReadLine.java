@@ -19,6 +19,8 @@ public class FileReadLine {
 		    	System.out.println(line);
 		    }
 		
+		}catch(Exception ex) {
+			throw new RuntimeException(ex);
 		} finally {
 		    if (bufferedReader != null) try { bufferedReader.close(); } catch (Exception ex) { /* Do Nothing */ }
 		    if (fileReader     != null) try { fileReader    .close(); } catch (Exception ex) { /* Do Nothing */ }
