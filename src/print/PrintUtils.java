@@ -90,8 +90,8 @@ public class PrintUtils {
 		for (int i = 0; i < fields.length; i++) {
 			// result.append(" ");
 			try {
-				result.append(fields[i].getName());
-				result.append(": ");
+//				result.append(fields[i].getName());
+//				result.append(": ");
 				// requires access to private field:
 				result.append(fields[i].get(obj));
 			} catch (IllegalAccessException ex) {
