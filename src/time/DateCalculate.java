@@ -44,6 +44,7 @@ public class DateCalculate {
 		return false;
 	}
 
+	//현재시간과 요청시간 차이
 	public void timeCalculator() throws ParseException {
 		// 요청시간
 		String reqDateStr = "201702011535";
