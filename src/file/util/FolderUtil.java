@@ -1,4 +1,4 @@
-package file.folder;
+package file.util;
 
 import java.io.File;
 import java.io.FileInputStream;

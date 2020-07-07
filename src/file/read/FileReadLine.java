@@ -7,7 +7,7 @@ import java.io.IOException;
 //한 라인씩 읽기
 public class FileReadLine {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 		FileReader     fileReader     = null;
 		BufferedReader bufferedReader = null;
 		try {

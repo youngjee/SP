@@ -11,7 +11,7 @@ public class FileReadAll {
 		String readAll = read("./OUTPUT/INSP_006_20171123100000.TXT");
 		System.out.println(readAll);
 	}
-	public static String read(String filePath) throws IOException {
+	public static String read(String filePath) {
 
 		StringBuilder stringBuilder;
 		FileReader fileReader = null;

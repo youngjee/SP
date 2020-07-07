@@ -6,13 +6,12 @@ import java.io.IOException;
 
 //파일쓰기
 public class FileWrite {
-	
+
 	public static void main(String[] args) throws IOException {
 		write("./OUTPUT/newfile.txt", "aaaaaaa");
 	}
 
-	public static void write(String filePath, String content)
-			throws IOException {
+	public static void write(String filePath, String content) {
 
 		FileWriter fileWriter = null;
 		BufferedWriter bufferedWriter = null;
@@ -22,6 +21,8 @@ public class FileWrite {
 			bufferedWriter = new BufferedWriter(fileWriter);
 			bufferedWriter.write(content);
 
+		} catch (Exception ex) {
+			throw new RuntimeException(ex);
 		} finally {
 
 			if (bufferedWriter != null)

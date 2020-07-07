@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 public class FileReadPart {
 	
 	public static void main(String[] args) throws IOException {
-		byte[] data = readBytes("./INPUT/MyAll.txt", 10, 100);
+		byte[] data = readBytes("./INPUT/MyAll.txt", 0, 100);
 		String str = new String(data);
 		System.out.println(str);
 		
