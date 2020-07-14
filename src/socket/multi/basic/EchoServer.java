@@ -53,8 +53,6 @@ public class EchoServer implements Runnable {
         }
     }
 
-         
-
     public static void main(String[] args) throws IOException {
 
         int portNumber = 30000;
