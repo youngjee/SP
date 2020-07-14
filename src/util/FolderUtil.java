@@ -11,20 +11,46 @@ public class FolderUtil {
 		FolderUtil util = new FolderUtil();
 		File dir = new File("./INPUT");
 		util.searchFile("MyAll.txt", dir);
-		//folder안에 파일 모두 출력
+		// folder안에 파일 모두 출력
 		subDirList("./INPUT");
-		
-		//delete
+
+		// delete
 		String path = "D:\\Eclipse\\Java\\새 폴더";
-	    deleteFolder(path);
-		
-		//copy
+		deleteFolder(path);
+
+		// copy
 		File folder1 = new File("D:\\Eclipse\\Java\\복사할폴더\\복사될폴더");
 		File folder2 = new File("D:\\Eclipse\\Java\\복사된폴더");
 		copy(folder1, folder2);
 	}
 
 	private File targetFile = null;
+
+	public static File findFileSub(String name) {
+
+		File file = new File("./BIGFILE");
+		return findFileSub(file, name);
+	}
+
+	public static File findFileSub(File file, String name) {
+
+		File[] files = file.listFiles();
+
+		for (File localFile : files) {
+
+			if (localFile.isDirectory()) {
+				File subFile = findFileSub(file, name);
+				if (subFile != null)
+					return subFile;
+			} else {
+				if (name.equals(localFile.getName())) {
+					return localFile;
+				}
+			}
+		}
+
+		return null;
+	}
 
 	public static void deleteFolder(String path) {
 

@@ -40,20 +40,18 @@ public class FileUtil {
 	 * 
 	 * 디렉토리 생성하기
 	 *
-	 * 
-	 * 
-	 * @param strDirectoryPath
-	 * 
-	 *                         생성할 디렉토리명
-	 * 
+	 * @param strDirectoryPath 생성할 디렉토리명
 	 * @return 생성 성공 : true, 실패 : false
 	 * 
 	 */
-
-	public static boolean createDirectory(String strDirectoryPath) {
-		boolean retValue = false;
-		retValue = new File(strDirectoryPath).mkdir();
-		return retValue;
+	public static boolean createDirectory(String dirPath) {
+		return new File(dirPath).mkdirs();
+	}
+	
+	public static boolean createSubDirectory(String fileName) {
+		String dirPath = fileName.substring(0, fileName.lastIndexOf("/"));
+		
+		return new File(dirPath).mkdirs();
 	}
 
 	/**
