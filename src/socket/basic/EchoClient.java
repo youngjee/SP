@@ -25,6 +25,8 @@ public class EchoClient {
 		String userInput;
 		
 		while ((userInput = stdIn.readLine()) != null) {
+			if("Q".equals(userInput))
+				break;
 			out.println(userInput);
 			out.flush();
 			System.out.println("echo: " + in.readLine());

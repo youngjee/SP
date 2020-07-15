@@ -1,13 +1,19 @@
 package util;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class FileUtil {
-	
+
 	public static String getFileName(String filePath) {
-		if(filePath.contains("/")) {
-			return filePath.substring(filePath.lastIndexOf("/")+1);
-		}else {
+		if (filePath.contains("/")) {
+			return filePath.substring(filePath.lastIndexOf("/") + 1);
+		} else {
 			return filePath;
 		}
 	}
@@ -34,7 +40,6 @@ public class FileUtil {
 
 		return strFullPath.substring(0, nPosLast);
 	}
-	
 
 	/**
 	 * 
@@ -47,10 +52,10 @@ public class FileUtil {
 	public static boolean createDirectory(String dirPath) {
 		return new File(dirPath).mkdirs();
 	}
-	
+
 	public static boolean createSubDirectory(String fileName) {
 		String dirPath = fileName.substring(0, fileName.lastIndexOf("/"));
-		
+
 		return new File(dirPath).mkdirs();
 	}
 
@@ -160,33 +165,134 @@ public class FileUtil {
 
 	/**
 	 * 파일 또는 디렉토리 삭제하기
+	 * 
 	 * @param sFileName 삭제 파일명 또는 디렉토리
 	 * @return
 	 */
-	public static boolean delete(String strFileName)
-	{
+	public static boolean delete(String strFileName) {
 		File objDeleteFile = new File(strFileName);
 		return objDeleteFile.delete();
 	}
 
 	/**
 	 * 파일명 또는 디렉토리명 변경하기
+	 * 
 	 * @param strSrc  기존 파일명 또는 디렉토리명
 	 * @param strDest 변경될 파일명 또는 디렉토리명
 	 * @return 변경 성공 여부
 	 */
-	public static boolean rename(String strSrc, String strDest)
-	{
+	public static boolean rename(String strSrc, String strDest) {
 		boolean retValue = false;
 
 		File objSrcFile = new File(toEncoding(strSrc)); // 파일 또는 디렉토리가 한글 일 경우
 		File objDestFile = new File(toEncoding(strDest)); // 파일 또는 디렉토리가 한글 일 경우
 
-		try{
+		try {
 			retValue = objSrcFile.renameTo(objDestFile);
-		}catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return retValue;
 	}
+
+	public static int copy(String srcPath, String destPath) throws FileNotFoundException {
+		int count = 0;
+		File srcFile = new File(srcPath);
+		File destFile = new File(destPath);
+
+		// 파일 존재 유무
+		if (!srcFile.exists()) {
+			throw new FileNotFoundException("파일이 존재하지 않습니다.");
+		}
+
+		// 파일체크 및 복사
+		if (srcFile.isFile()) {
+			copyFile(srcFile, destFile);
+			// 디렉토리 체크 및 복사
+		} else if (srcFile.isDirectory()) {
+			copyDirectory(srcFile, destFile);
+		}
+
+		return count;
+	}
+
+	// 파일복사
+	private static void copyFile(File source, File dest) {
+		long startTime = System.currentTimeMillis();
+
+		int count = 0;
+		long totalSize = 0;
+		byte[] b = new byte[128];
+
+		FileInputStream in = null;
+		FileOutputStream out = null;
+		// 성능향상을 위한 버퍼 스트림 사용
+		BufferedInputStream bin = null;
+		BufferedOutputStream bout = null;
+		try {
+			in = new FileInputStream(source);
+			bin = new BufferedInputStream(in);
+
+			out = new FileOutputStream(dest);
+			bout = new BufferedOutputStream(out);
+			while ((count = bin.read(b)) != -1) {
+				bout.write(b, 0, count);
+				totalSize += count;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {// 스트림 close 필수
+			try {
+				if (bout != null) {
+					bout.close();
+				}
+				if (out != null) {
+					out.close();
+				}
+				if (bin != null) {
+					bin.close();
+				}
+				if (in != null) {
+					in.close();
+				}
+
+			} catch (IOException r) {
+				// TODO: handle exception
+				System.out.println("close 도중 에러 발생.");
+			}
+		}
+		// 복사 시간 체크
+		StringBuffer time = new StringBuffer("소요시간 : ");
+		time.append(System.currentTimeMillis() - startTime);
+		time.append(",FileSize : " + totalSize);
+		System.out.println(time);
+	}
+
+	// 디렉토리 생성 -> 파일복사
+	private static void copyDirectory(File source, File dest) {
+		long startTime = System.currentTimeMillis();
+
+		if (!source.exists() || !dest.isDirectory()) {
+			throw new IllegalArgumentException("디렉토리 없음");
+		}
+
+		dest.mkdirs();// 생성
+
+		File[] fileList = source.listFiles();// 내부의 파일리스트 가져오기
+
+		for (int i = 0; i < fileList.length; i++) {
+			File sourceFile = fileList[i];
+
+			File destFile = new File(dest, sourceFile.getName());
+			copyFile(sourceFile, destFile);// copyFile메소드 실행
+		}
+
+		// 복사 시간 체크
+		StringBuffer time = new StringBuffer("소요시간 : ");
+		time.append(System.currentTimeMillis() - startTime);
+		time.append(",File Total List : " + fileList.length);
+		System.out.println(time);
+	}
+
 }

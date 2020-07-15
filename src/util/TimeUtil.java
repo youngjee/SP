@@ -40,9 +40,10 @@ public class TimeUtil {
 
 		//1시간을 60분, 60초, 1000밀리세컨으로 나눔
 		//결과는 millisecond
-		//초는 gap / 60 / 60
-		//분은 gap / 60
-		//시간은 gap
+		//시간은 gap / 60 / 60 / 1000
+		//분은 gap / 60 / 1000
+		//초는 gap /1000
+		//밀리세컨은 gap
 		return gap / 60 / 60 / 1000;
 	}
 
