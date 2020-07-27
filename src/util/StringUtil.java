@@ -37,5 +37,16 @@ public class StringUtil {
 		}
 		return true;
 	}
+	
+	//abc-name => abcName
+	public static String camelCaseToFieldName(String fieldName) {
+		StringBuffer sb = new StringBuffer(fieldName);
+		while (sb.indexOf("-") != -1) {
+			int dashInx = sb.indexOf("-");
+			sb.replace(dashInx, dashInx + 2, String.valueOf(Character.toUpperCase(sb.charAt(dashInx + 1))));
+		}
+		sb.setCharAt(0,Character.toUpperCase(sb.charAt(0)));
+		return sb.toString();
+	}
 
 }
