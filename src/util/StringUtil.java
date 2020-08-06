@@ -1,7 +1,23 @@
 package util;
 
 public class StringUtil {
-
+	
+	public static void main(String[] args) {
+		int[] seperator = {8, 7, 1, 14};
+		PrintUtils.print(lineSubString("CARD_001BUS_001N20171019143610", seperator));
+	}
+	
+	//line을 길이만큼 잘라서 배열로 리턴하는 함수
+	public static String[] lineSubString(String line, int[] seperator) {
+		String[] strArr = new String[seperator.length];
+		int beginIdx = 0;
+		for (int i = 0; i < seperator.length; i++) {
+			strArr[i] = line.substring(beginIdx, beginIdx+seperator[i]);
+			beginIdx = beginIdx+seperator[i];
+		}
+		return strArr;
+	}
+	
 	public static boolean isNumeric(String string) {
 
 		if (string.equals("")) {
@@ -10,7 +26,7 @@ public class StringUtil {
 		}
 		return string.matches("-?\\d+(\\.\\d+)?");
 	}
-
+	
 	public static boolean isDouble(String s) {
 		try {
 			Double.parseDouble(s);

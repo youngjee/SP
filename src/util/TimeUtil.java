@@ -59,6 +59,9 @@ public class TimeUtil {
 		//LocalDate -> String
 		LocalDate.of(2020, 12, 12).format(DateTimeFormatter.BASIC_ISO_DATE); // 20201212
 		
+		LocalTime.of(12, 20, 3).format(DateTimeFormatter.ofPattern("HH:mm:ss")); // 2015-04-18 00:42:24
+
+		
 		//LocalDateTime -> String
 		LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")); // 2015-04-18 00:42:24
 

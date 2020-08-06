@@ -24,7 +24,9 @@ public class SaxTest {
 		InputStream in = null;
 
 		try {
+			//File file = new File("./INPUT/student.xml");
 			in = SaxTest.class.getResourceAsStream("student.xml");
+			
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser saxParser = factory.newSAXParser();
 			SaxHandler handler = new SaxHandler();
