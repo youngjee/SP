@@ -18,6 +18,45 @@ public class StringUtil {
 		return strArr;
 	}
 	
+	//a에서 diff만큼 갔을때(알파벳나열에서) 해당 알파벳
+	public static char getChar(char a, int diff) {
+		//대문자일때
+		int d = getIntForChar(a)+diff;
+		if(d<0) {
+			return (char)('Z'+d);
+		}else {
+			return getCharForInt(d);
+		}
+	}
+	
+	//str문자열에서 point위치에 해당하는 알파벳을 diff만큼 갔을 때 해당 알파벳(알파벳이 중복될 수 있으므로 알파벳이 아니라 위치로 파라미터 전달)
+	public static char getChar(String str, int point, int diff) {
+		//대문자일때
+		int d = point+diff;
+		if(d<0) {
+			return str.charAt(str.length()+d);
+		}else if(d>=str.length()) {
+			return str.charAt(d-str.length());
+		}else {
+			return str.charAt(d);
+		}
+	}
+	
+	//a알파벳의 위치리턴('A'를 0으로 가정했을 때)
+	public static int getIntForChar(char a) {
+		return a-'A';
+	}
+	
+	//숫자a의 문자리턴('A'를 0으로 가정했을 때)
+	public static char getCharForInt(int a) {
+		return (char)('A'+a);
+	}
+	
+	
+	public int diffChar(char a, char b) {
+		return Math.min(Math.abs(a-b), Math.abs('Z'+(a-64)-b));
+	}
+	
 	public static boolean isNumeric(String string) {
 
 		if (string.equals("")) {

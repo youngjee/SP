@@ -9,6 +9,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileUtil {
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		File dir = new File("./TEMP_DEST");
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+		
+		FileUtil.copy(new File("./GUESTS"), dir);
+	}
 
 	public static String getFileName(String filePath) {
 		if (filePath.contains("/")) {
@@ -16,6 +25,8 @@ public class FileUtil {
 		} else {
 			return filePath;
 		}
+		
+		
 	}
 
 	/**
@@ -194,27 +205,41 @@ public class FileUtil {
 		}
 		return retValue;
 	}
+	
+	//하위 파일(디렉토리포함) 모두 복사
+	public static void copy(File sourceF, File targetF){
+		File[] target_file = sourceF.listFiles();
+		for (File file : target_file) {
+			File temp = new File(targetF.getAbsolutePath() + File.separator + file.getName());
+			if(file.isDirectory()){
+				temp.mkdir();
+				copy(file, temp);
+			} else {
+				FileInputStream fis = null;
+				FileOutputStream fos = null;
+				try {
+					fis = new FileInputStream(file);
+					fos = new FileOutputStream(temp) ;
+					byte[] b = new byte[4096];
+					int cnt = 0;
+					while((cnt=fis.read(b)) != -1){
+						fos.write(b, 0, cnt);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally{
+					try {
+						fis.close();
+						fos.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	
+				}
+			}
+		  }	
+	    }
 
-	public static int copy(String srcPath, String destPath) throws FileNotFoundException {
-		int count = 0;
-		File srcFile = new File(srcPath);
-		File destFile = new File(destPath);
-
-		// 파일 존재 유무
-		if (!srcFile.exists()) {
-			throw new FileNotFoundException("파일이 존재하지 않습니다.");
-		}
-
-		// 파일체크 및 복사
-		if (srcFile.isFile()) {
-			copyFile(srcFile, destFile);
-			// 디렉토리 체크 및 복사
-		} else if (srcFile.isDirectory()) {
-			copyDirectory(srcFile, destFile);
-		}
-
-		return count;
-	}
 
 	// 파일복사
 	private static void copyFile(File source, File dest) {

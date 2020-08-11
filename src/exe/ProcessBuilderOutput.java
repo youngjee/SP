@@ -14,10 +14,11 @@ public class ProcessBuilderOutput {
 
 	public static void main(String[] args) {
 
+	}
+	
+	public void process(List<String> list) {
 		ProcessBuilder processBuilder = new ProcessBuilder();
-
-		FileUtil.createDirectory("./OUTFILE");
-
+		
 		List<String> commandList = new ArrayList<String>();
 		commandList.add("SIGNAGE.EXE");
 		processBuilder.command(commandList);
@@ -30,28 +31,37 @@ public class ProcessBuilderOutput {
 
 			Process process = processBuilder.start();
 
-			process.getOutputStream().write("10:59:56#BUS01,02130#BUS02,00855#BUS03,07485".getBytes());
-			process.getOutputStream().flush();
-
-			InputStream inputStream = process.getErrorStream();
-			BufferedReader stdError = new BufferedReader(new InputStreamReader(inputStream));
-
-			String line;
-			while ((line = stdError.readLine()) != null) {
-				System.out.println(line);
+			for (int i = 0; i < list.size(); i++) {
+				process.getOutputStream().write(list.get(i).getBytes());
+				process.getOutputStream().write(System.lineSeparator().getBytes());
+				process.getOutputStream().flush();
 			}
-
-			stdError.close();
-			int exitCode;
-			exitCode = process.waitFor();
-			System.out.println("\nExited with error code : " + exitCode);
+			BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(process.getInputStream()));
+//
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+//            }
+//
+//            int exitCode = process.waitFor();
+//            System.out.println("\nExited with error code : " + exitCode);
+//
+//			InputStream inputStream = process.getErrorStream();
+//			BufferedReader stdError = new BufferedReader(new InputStreamReader(inputStream));
+//
+//			String line;
+//			while ((line = stdError.readLine()) != null) {
+//				System.out.println(line);
+//			}
+//
+//			stdError.close();
+//			int exitCode;
+//			exitCode = process.waitFor();
+//			System.out.println("\nExited with error code : " + exitCode);
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		} 
 	}
 }
