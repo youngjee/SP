@@ -11,69 +11,84 @@ import java.util.concurrent.Executors;
 
 public class MultiServer implements Runnable {
 
-    private Socket socket;
-    private int clientNum;
+	public static void main(String[] args) {
 
-    public MultiServer(Socket socket) {
-        this.socket = socket;
-    }
+		int portNumber = 30000;
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = new ServerSocket(portNumber);
+			ExecutorService es = Executors.newFixedThreadPool(5);
+			while (true) {
+				es.submit(new MultiServer(serverSocket.accept()));
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				serverSocket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
-    @Override
-    public void run() {
+	}
+	
+	private Socket socket;
+	private int clientNum;
 
-        PrintWriter out = null;
-        BufferedReader in = null;
+	public MultiServer(Socket socket) {
+		this.socket = socket;
+	}
 
-        try {
-            out = new PrintWriter(socket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+	@Override
+	public void run() {
 
-            String echo;
-            while ((echo = in.readLine()) != null) {
-            	String message;
-            	if(echo.equals("file")){
-            		message = "파일전송중...";
-            	}else if(echo.equals("exec")){
-            		message="exe실행중...";
-            	}else{
-            		message="입력오류!";
-            	}
-            	System.out.println(message);
-               out.println(message);
-                out.flush();
+		PrintWriter out = null;
+		BufferedReader in = null;
 
-            }
+		try {
+			out = new PrintWriter(socket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        } catch (IOException e) {
+			String echo;
+			while ((echo = in.readLine()) != null) {
+				String message;
+				if (echo.equals("file")) {
+					message = "파일전송중...";
+				} else if (echo.equals("exec")) {
+					message = "exe실행중...";
+				} else {
+					message = "입력오류!";
+				}
+				System.out.println(message);
+				out.println(message);
+				out.flush();
 
-            e.printStackTrace();
+			}
 
-        } finally {
-            try {
-                if (in != null) in.close();
-                if (out != null) out.close();
-                if (socket != null) socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+		} catch (IOException e) {
 
-            }
+			e.printStackTrace();
 
-        }
-    }
+		} finally {
+			try {
+				if (in != null)
+					in.close();
+				if (out != null)
+					out.close();
+				if (socket != null)
+					socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
 
-         
+			}
 
-    public static void main(String[] args) throws IOException {
+		}
+	}
 
-        int portNumber = 30000;
-        ServerSocket serverSocket = new ServerSocket(portNumber);
-        ExecutorService es = Executors.newFixedThreadPool(5);
-        while (true) {
-            es.submit(new MultiServer(serverSocket.accept()));
-        }
-
-        //serverSocket.close();
-
-    }
+	
 
 }

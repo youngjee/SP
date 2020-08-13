@@ -63,9 +63,9 @@ public class DynamicLoading {
 		try {
 
 			Class<?> c = loader.loadClass("sp.dloading.libsrc." + file.getName().substring(0, file.getName().lastIndexOf('.')));
-			Object o = c.newInstance();
+			Object o = c.getDeclaredConstructor().newInstance();
 			return o;
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new Object();
