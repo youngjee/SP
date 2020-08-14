@@ -26,7 +26,7 @@ public class MultiThreadExample{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println(mt);
 		System.out.println("Thread finish");
 	}
 
@@ -36,6 +36,12 @@ public class MultiThreadExample{
 
 	public void setStrList(List<String> strList) {
 		this.strList = strList;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return strList.toString();
 	}
 	
 	

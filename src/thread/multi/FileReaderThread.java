@@ -17,7 +17,8 @@ public class FileReaderThread implements Runnable {
 		// TODO Auto-generated method stub
 		File dir = new File("./INPUT");
 		for(File file:dir.listFiles()) {
-			readFile(file);
+			if(!file.isDirectory())
+				readFile(file);
 		}
 	}
 
@@ -30,7 +31,6 @@ public class FileReaderThread implements Runnable {
 			bufferedReader = new BufferedReader(fileReader);
 			String line;
 			while ((line = bufferedReader.readLine()) != null) {
-				Thread.sleep(2000);
 				mt.getStrList().add(line);
 			}
 

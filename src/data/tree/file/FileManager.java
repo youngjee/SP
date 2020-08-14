@@ -1,4 +1,4 @@
-package data.tree;
+package data.tree.file;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

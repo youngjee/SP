@@ -1,10 +1,9 @@
-package data.tree;
+package data.tree.file;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
-
 	private String nodeId;
 	private String parentId;
 	private List<Node> childNodes = new ArrayList<Node>();
@@ -39,6 +38,4 @@ public class Node {
 	public void setChildNodes(List<Node> childNodes) {
 		this.childNodes = childNodes;
 	}
-	
-	
 }
