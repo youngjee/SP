@@ -10,7 +10,7 @@ public class ZipMaker {
 	
 	public static void main(String[] args) {
 		try {
-			ZipMaker.compress("./ZIP_INPUT", "./test.zip");
+			ZipMaker.compress("./INPUT", "./test.zip");
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}

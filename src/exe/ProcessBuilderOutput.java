@@ -31,6 +31,7 @@ public class ProcessBuilderOutput {
 
 			Process process = processBuilder.start();
 
+			//Process에 값 전달(parameter아닌 scanner input형태)
 			for (int i = 0; i < list.size(); i++) {
 				process.getOutputStream().write(list.get(i).getBytes());
 				process.getOutputStream().write(System.lineSeparator().getBytes());

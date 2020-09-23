@@ -11,20 +11,25 @@ public class FolderUtil {
 		FolderUtil util = new FolderUtil();
 		File dir = new File("./INPUT");
 		util.searchFile("MyAll.txt", dir);
-		// folder안에 파일 모두 출력
-		subDirList("./INPUT");
-
-		// delete
-		String path = "D:\\Eclipse\\Java\\새 폴더";
-		deleteFolder(path);
-
-		// copy
-		File folder1 = new File("D:\\Eclipse\\Java\\복사할폴더\\복사될폴더");
-		File folder2 = new File("D:\\Eclipse\\Java\\복사된폴더");
-		copy(folder1, folder2);
+//		// folder안에 파일 모두 출력
+//		subDirList("./INPUT");
+//
+//		// delete
+//		String path = "D:\\Eclipse\\Java\\새 폴더";
+//		deleteFolder(path);
+//
+//		// copy
+//		File folder1 = new File("D:\\Eclipse\\Java\\복사할폴더\\복사될폴더");
+//		File folder2 = new File("D:\\Eclipse\\Java\\복사된폴더");
+//		copy(folder1, folder2);
+		if(util.targetFile == null) {
+			System.out.println("no file");
+		}else {
+			System.out.println("searched");
+		}
 	}
 
-	private File targetFile = null;
+	File targetFile = null;
 
 	public static File findFileSub(String name) {
 
@@ -32,6 +37,12 @@ public class FolderUtil {
 		return findFileSub(file, name);
 	}
 
+	/**
+	 * 파일찾기
+	 * @param file
+	 * @param name
+	 * @return
+	 */
 	public static File findFileSub(File file, String name) {
 
 		File[] files = file.listFiles();
@@ -52,6 +63,10 @@ public class FolderUtil {
 		return null;
 	}
 
+	/**
+	 * 하위파일 모두 삭제
+	 * @param path
+	 */
 	public static void deleteFolder(String path) {
 
 		File folder = new File(path);
@@ -76,6 +91,11 @@ public class FolderUtil {
 		}
 	}
 
+	/**
+	 * 파일복사
+	 * @param sourceF
+	 * @param targetF
+	 */
 	public static void copy(File sourceF, File targetF) {
 		File[] target_file = sourceF.listFiles();
 		for (File file : target_file) {
@@ -109,6 +129,11 @@ public class FolderUtil {
 		}
 	}
 
+	/**
+	 * 하위에서 파일 찾기
+	 * @param fileName
+	 * @param dir
+	 */
 	public void searchFile(String fileName, File dir) {
 		File[] fileList = dir.listFiles();
 		for (File file : fileList) {
@@ -123,6 +148,9 @@ public class FolderUtil {
 		}
 	}
 
+	/*
+	 * 하위 파일리스트 출력
+	 */
 	public static void subDirList(String source) {
 		File dir = new File(source);
 		File[] fileList = dir.listFiles();
