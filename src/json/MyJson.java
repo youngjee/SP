@@ -1,5 +1,7 @@
 package json;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
@@ -17,5 +19,6 @@ public class MyJson {
 		String jsonString = gson.toJson(emp);
 		 
 		Employee empObject = gson.fromJson(jsonString, Employee.class);
+		System.out.println(empObject.toString());
 	}
 }

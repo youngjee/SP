@@ -6,5 +6,45 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/02. TOOL/javax.servlet-3.0.0.v201112011016.jar/javax.servlet-3.0.0.v201112011016.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/infinispan-common-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/infinispan-embedded-query-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/infinispan-remote-query-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-alpn-conscrypt-server-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-alpn-java-server-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-alpn-openjdk8-server-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-alpn-server-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-annotations-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-cdi-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-client-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-continuation-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-deploy-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-gcloud-session-manager-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-hazelcast-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-http-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-io-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-jaas-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-jaspi-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-jmx-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-jndi-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-memcached-sessions-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-nosql-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-openid-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-plus-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-proxy-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-quickstart-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-rewrite-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-schemas-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-security-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-server-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-servlet-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-servlets-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-unixsocket-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-util-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-util-ajax-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-webapp-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/jetty-xml-9.4.41.v20210516.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/jetty-distribution-9.4.41.v20210516/jetty-distribution-9.4.41.v20210516/lib/servlet-api-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/02. TOOL/gson-2.8.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

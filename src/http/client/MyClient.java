@@ -1,11 +1,27 @@
 package http.client;
 
+
+import org.eclipse.jetty.client.HttpClient;
+import org.eclipse.jetty.client.api.ContentResponse;
+import org.eclipse.jetty.client.api.Request;
+import org.eclipse.jetty.http.HttpMethod;
+
 public class MyClient {
 	public static void main(String[] args) throws Exception {
 		HttpClient httpClient = new HttpClient();
 		httpClient.start();
-		ContentResponse contentRes = httpClient.newRequest("http://127.0.0.1:8080/helloworld").method(HttpMethod.GET)
-				.send();
+//		ContentResponse contentRes = httpClient.newRequest("http://127.0.0.1:8080/mypath").method(HttpMethod.GET)
+//				.send();
+//		System.out.println(contentRes.getContentAsString());
+//		
+		Request request = httpClient.newRequest("http://127.0.0.1:8080/mypath").method(HttpMethod.POST);
+		
+		request.param("param", "hellllloooooooooooo");
+		request.attribute("param", "attributeAddeeeddd");
+		request.attribute("param1", "aatribbsdlifjxdfijsldifjslifj");
+		
+		ContentResponse contentRes = request.send();
 		System.out.println(contentRes.getContentAsString());
+		
 	}
 }
