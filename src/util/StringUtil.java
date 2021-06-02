@@ -5,6 +5,11 @@ public class StringUtil {
 	public static void main(String[] args) {
 		int[] seperator = {8, 7, 1, 14};
 		PrintUtils.print(lineSubString("CARD_001BUS_001N20171019143610", seperator));
+		
+		String[] pattern = {"_", ".", "#"};
+		PrintUtils.print(StringUtil.split("CARD_1111#3333.TXT", pattern));
+		
+		System.out.println("숫자인지 판단");
 	}
 	
 	//line을 길이만큼 잘라서 배열로 리턴하는 함수
@@ -103,5 +108,43 @@ public class StringUtil {
 		sb.setCharAt(0,Character.toUpperCase(sb.charAt(0)));
 		return sb.toString();
 	}
+	
 
+
+	public static String[] split(String str, String[] patterns) {
+		String pattern = "[";
+		for (int i = 0; i < patterns.length; i++) {
+			pattern = pattern + patterns[i];
+			if(i != patterns.length-1) {
+				pattern = pattern + "|";
+						
+			}
+		}
+		
+		pattern = pattern+"]";
+		System.out.println(pattern);
+		
+		return str.split(pattern);
+	}
+	
+	
+	public static boolean isNumber(String str) {
+		try {
+			Double.parseDouble(str);
+		}catch(Exception ex) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public static boolean isInteger(String str) {
+		try {
+			Integer.parseInt(str);
+		}catch(Exception ex) {
+			return false;
+		}
+		
+		return true;
+	}
 }
